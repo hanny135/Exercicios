@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formulário / JavaScript</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style>
+            body{
+                background-color: rosybrown;
+            }
+            h1{
+                margin-left:20%;
+            }
+            #conf_divs{
+                position: absolute;
+                float: right;
+                clear: left;
+                background-color: white;
+                padding:1%;
+                border-color: black;
+                border-radius: 10%;
+                margin-left: 70%;
+            }
+            #conf_divs select, input, label{
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 100%;
+            }
+            #conf_divs label{
+                font-size: 110%;
+            }
+            #conf_divs select{
+                width:85%;
+            }
+            #conf_divs input{
+                width: 80%;
+            }
+            #button{
+                background-color: green;
+                color:white;
+            }
+            #button:hover{
+                cursor: pointer;
+                background:linear-gradient(green, white);
+                color:black;
+            }
+            #reset{
+                background-color: red;
+                color:white;
+            }
+            #reset:hover{
+                cursor: pointer;
+                background:linear-gradient(red, white);
+                color:black;
+            }
+            #imagem_div{
+                width:90%;
+                margin-left: 4%;
+            }
+            #div1, #div2, #div3{
+                background-color: white;
+                margin:0%;
+            }
+            #div1{
+                position:relative;
+                float: left;
+                clear: right;
+                width:50%;
+                padding:1%;
+            }
+            #div2{
+                position:relative;
+                float: left;
+                clear: right;
+                width:50%;
+                padding:1%;
+            }
+            #div3{
+                position:relative;
+                float: left;
+                clear: right;
+                width:50%;
+                padding:1%;
+            }
+        </style>
+        <script>
+            function AlterarDivs(){
+                const urlParams = new URLSearchParams(window.location.search);
+                const cor = urlParams.get('cor');
+                const margem = urlParams.get('margem');
+
+
+                divs = document.getElementsByClassName('post');
+                for(i=0 ; i<divs.length ; i++){
+                    divs[i].style.backgroundColor = 'red';
+                    divs[i].style.margin = margem;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Notícias</h1>
+        <div class="post" id="div1">
+            <h2>Preço médio da gasolina sobe pela 6ª semana seguida nos postos, mostra ANP</h2>
+            <img id="imagem_div" src="img/imag_div1.jpg"/>
+            <p>O preço médio da gasolina subiu pela 6ª semana nos postos do país, de acordo com levantamento realizado pela Agência Nacional do Petróleo, Gás Natural e Biocombustíveis (ANP). O preço médio da gasolina na semana encerrada no dia 11 de setembro subiu para R$ 6,059 por litro, contra R$ 6,007 por litro na semana anterior, o que representa uma alta de 0,86%.</p>
+            <p>Nos 4.434 postos pesquisados pela ANP, o preço máximo chegou a R$ 7,185 o litro e, o mínimo, foi de R$ 5,15.</p>
+            <p>A agência também apurou que o valor médio do litro do diesel aumentou de R$ 4,627 para R$ 4,695 na semana. Já o preço do litro do etanol subiu de R$ 4,611 para 4,653 na semana.</p>
+        </div>
+        <div class="post" id="div2">
+            <h2>Pelé tem alta de UTI e vai para quarto do Hospital Albert Einstein, em SP</h2>
+            <img id="imagem_div" src="img/imag_div2.jpg"/>
+            <p>O ex-jogador de futebol Edson Arantes Nascimento, o Pelé, de 80 anos, teve alta da Unidade de Terapia Intensiva (UTI) nesta terça-feira (14), após retirada de tumor no colón direito no dia 4. Ele seguirá em recuperação em um quarto do Hospital Albert Einstein, na Zona Sul da capital paulista.</p>
+            <p>"O paciente Edson Arantes do Nascimento apresenta boa condição clínica, e recebeu alta da Unidade de Terapia Intensiva (UTI). Permanecerá, a partir de agora, em recuperação no quarto", diz a nota.</p>
+            <p>Em seu perfil no Instagram, na última sexta (10), Pelé publicou que "a cada dia que passa eu me sinto um pouco melhor". Disse também que está "ansioso para voltar a jogar" e, enquanto está no hospital, aproveita para conversar com a família e também descansar.</p>
+        </div>
+        <div class="post" id="div3">
+            <h2>Combinação de tipos diferentes de vacinas contra a Covid pode ser vantajosa e gerar mais resposta</h2>
+            <img id="imagem_div" src="img/imag_div3.jpg"/>
+            <p>Estudos apontam que combinar a vacina AstraZeneca com os imunizantes que utilizam a tecnologia de RNA mensageiro aumenta a resposta imune na comparação com o regime tradicional.</p>
+            <p>A falta de vacina AstraZeneca levou os estados do Rio de Janeiro e São Paulo a utilizar o imunizante da PFizer na aplicação da segunda dose na vacinação contra a Covid-19.</p>
+            <p>Combinar vacinas de diferentes fabricantes é seguro e eficaz? Os estudos já divulgados sobre o tema apontam que, em determinados casos, a mistura pode sim ser vantajosa e gerar uma maior resposta imune.</p>
+            <p>A estratégia de Rio de Janeiro e São Paulo é baseada justamente nos dois tipos de vacinas com mais resultados já conhecidos das pesquisas sobre a chamada "vacinação heteróloga" ou "intercambialidade de vacinas".</p>
+        </div>
+
+
+
+        <div id="conf_divs">
+            <h2>Configuração de Divs</h2>
+            <form onsubmit="AlterarDivs()">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Cor: </label>
+                        </td>
+                        <td>
+                            <select name="cor">
+                                <option value="nenhum">Nenhum</option>
+                                <option value="branco">Branco</option>
+                                <option value="preto">Preto</option>
+                                <option value="rosa">Rosa</option>
+                                <option value="azul" >Azul</option>
+                                <option value="verde">Verde</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Margem: </label>
+                        </td>
+                        <td>
+                            <input name="margem" type="number" value="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="button" name="submit" type="submit"/>
+                        </td>
+                        <td>
+                            <input id="reset" name="reset" type="reset" value="Reset"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
